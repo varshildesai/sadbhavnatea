@@ -20,9 +20,9 @@ export default function Navbar() {
       <div className="w-full px-4 md:px-10 flex justify-between items-center">
         
         {/* Left: Logo */}
-        <div className="flex-1 flex justify-start">
-          <Link to="/" className="flex items-center shrink-0">
-            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-12 md:h-14 lg:h-[60px] w-auto object-contain drop-shadow-md transition-transform duration-300 hover:scale-[1.02]" />
+        <div className="flex justify-start shrink-0">
+          <Link to="/" className="flex items-center">
+            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-16 md:h-20 lg:h-[76px] w-auto object-contain drop-shadow-md transition-transform duration-300 hover:scale-[1.03]" />
           </Link>
         </div>
         
@@ -53,7 +53,7 @@ export default function Navbar() {
         </nav>
 
         {/* Right: User Actions */}
-        <div className="flex-1 flex justify-end items-center gap-5 shrink-0">
+        <div className="flex justify-end items-center gap-5 shrink-0">
           {user ? (
             <div className="hidden md:flex items-center gap-4 text-[15px] font-medium">
               <span className="bg-[#4ade80]/20 hover:bg-[#4ade80]/30 transition-colors duration-300 px-4 py-1.5 rounded-full border border-[#4ade80]/40 text-white shadow-sm cursor-default">
