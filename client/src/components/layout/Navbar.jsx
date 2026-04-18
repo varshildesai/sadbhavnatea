@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center overflow-visible">
         <Link to="/" className="flex items-center shrink-0 -ml-2 lg:-ml-6 mr-6 md:mr-16">
           <div className="flex items-center justify-center transform scale-125 md:scale-150 origin-left">
-            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl" />
+            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-12 md:h-14 lg:h-16 w-auto object-contain drop-shadow-2xl" />
           </div>
         </Link>
         
