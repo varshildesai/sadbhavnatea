@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, Menu, LogOut, Heart, Home, Store, Grid, Info } from 'lucide-react';
+import { ShoppingCart, User, Menu, LogOut, Heart } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
 import { useUI } from '../../context/UIContext';
@@ -16,66 +16,75 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-gradient-to-r from-[#d96b00] to-[#064e3b] shadow-lg sticky top-0 z-50 text-white border-b border-white/10">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-3 flex justify-between items-center overflow-visible">
-        <Link to="/" className="flex items-center shrink-0 -ml-2 lg:-ml-6 mr-6 md:mr-16">
-          <div className="flex items-center justify-center transform scale-125 md:scale-150 origin-left">
-            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-12 md:h-14 lg:h-16 w-auto object-contain drop-shadow-2xl" />
-          </div>
-        </Link>
+    <header className="bg-gradient-to-r from-[#c06000]/95 to-[#053e2f]/95 backdrop-blur-md shadow-md sticky top-0 z-50 text-white border-b border-white/10 transition-all duration-300">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex justify-between items-center h-[72px]">
         
-        <nav className="hidden lg:flex space-x-1 lg:space-x-2 bg-black/15 p-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-inner">
-          <Link to="/" className="flex items-center gap-2 text-white/90 font-bold text-[15px] tracking-wide hover:bg-white/20 hover:text-white px-4 py-2 rounded-full transition-all duration-300 group">
-            <Home size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+        {/* Left: Logo */}
+        <div className="flex-1 flex justify-start">
+          <Link to="/" className="flex items-center shrink-0">
+            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-10 md:h-12 w-auto object-contain drop-shadow-md transition-transform duration-300 hover:scale-[1.02]" />
+          </Link>
+        </div>
+        
+        {/* Center: Navigation Menu */}
+        <nav className="hidden lg:flex items-center justify-center gap-8 shrink-0">
+          <Link to="/" className="text-white/90 font-medium text-[15px] tracking-wide hover:text-white relative group transition-colors duration-300 py-2">
             Home
+            <span className="absolute bottom-1 left-1/2 w-0 h-[2px] bg-[#D6A354] group-hover:w-full group-hover:left-0 transition-all duration-300 ease-in-out"></span>
           </Link>
-          <Link to="/products" className="flex items-center gap-2 text-white/90 font-bold text-[15px] tracking-wide hover:bg-white/20 hover:text-white px-4 py-2 rounded-full transition-all duration-300 group">
-            <Store size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+          <Link to="/products" className="text-white/90 font-medium text-[15px] tracking-wide hover:text-white relative group transition-colors duration-300 py-2">
             Shop
+            <span className="absolute bottom-1 left-1/2 w-0 h-[2px] bg-[#D6A354] group-hover:w-full group-hover:left-0 transition-all duration-300 ease-in-out"></span>
           </Link>
-          <Link to="/categories" className="flex items-center gap-2 text-white/90 font-bold text-[15px] tracking-wide hover:bg-white/20 hover:text-white px-4 py-2 rounded-full transition-all duration-300 group">
-            <Grid size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+          <Link to="/categories" className="text-white/90 font-medium text-[15px] tracking-wide hover:text-white relative group transition-colors duration-300 py-2">
             Categories
+            <span className="absolute bottom-1 left-1/2 w-0 h-[2px] bg-[#D6A354] group-hover:w-full group-hover:left-0 transition-all duration-300 ease-in-out"></span>
           </Link>
-          <Link to="/about" className="flex items-center gap-2 text-white/90 font-bold text-[15px] tracking-wide hover:bg-white/20 hover:text-white px-4 py-2 rounded-full transition-all duration-300 group">
-            <Info size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+          <Link to="/about" className="text-white/90 font-medium text-[15px] tracking-wide hover:text-white relative group transition-colors duration-300 py-2">
             About Us
+            <span className="absolute bottom-1 left-1/2 w-0 h-[2px] bg-[#D6A354] group-hover:w-full group-hover:left-0 transition-all duration-300 ease-in-out"></span>
           </Link>
         </nav>
 
-        <div className="flex items-center space-x-5">
+        {/* Right: User Actions */}
+        <div className="flex-1 flex justify-end items-center gap-5 md:gap-6">
           {user ? (
-            <div className="hidden md:flex items-center space-x-4 text-sm font-bold mr-2">
-              <span className="bg-white/20 px-4 py-1.5 rounded-full border border-white/30 text-white shadow-sm backdrop-blur-sm">
+            <div className="hidden md:flex items-center gap-5 text-sm font-medium">
+              <span className="bg-white/10 hover:bg-white/15 transition-colors duration-300 px-4 py-1.5 rounded-full border border-white/10 text-white shadow-sm cursor-default">
                 {user.name}
               </span>
               {user.role === 'admin' && (
-                <Link to="/admin" className="text-white hover:text-[#D6A354] hover:scale-110 transition-transform duration-300 drop-shadow-sm">Admin</Link>
+                <Link to="/admin" className="text-white/80 hover:text-[#D6A354] transition-colors duration-300">Admin</Link>
               )}
-              <Link to="/my-orders" className="text-white hover:text-[#D6A354] hover:scale-110 transition-transform duration-300 drop-shadow-sm font-bold" title="My Orders">Orders</Link>
-              <button onClick={handleLogout} className="text-white hover:text-red-400 hover:scale-125 transition-transform duration-300" title="Logout">
-                <LogOut size={22} className="drop-shadow-sm" />
+              <Link to="/my-orders" className="text-white/80 hover:text-[#D6A354] transition-colors duration-300">Orders</Link>
+              <button onClick={handleLogout} className="text-white/80 hover:text-red-400 transition-colors duration-300" title="Logout">
+                <LogOut size={20} className="hover:-translate-y-0.5 transition-transform duration-300" />
               </button>
             </div>
           ) : (
-            <Link to="/login" className="text-white/90 hover:text-white hover:scale-125 hover:rotate-6 transition-all duration-300 relative group p-2 hover:bg-white/10 rounded-full" title="Sign In">
-              <User size={26} className="drop-shadow-sm" />
+            <Link to="/login" className="text-white/80 hover:text-[#D6A354] transition-colors duration-300" title="Sign In">
+              <User size={22} className="hover:-translate-y-0.5 transition-transform duration-300" />
             </Link>
           )}
-          <Link to="/wishlist" className="text-white/90 hover:text-white hover:scale-125 transition-all duration-300 relative group p-2 hover:bg-white/10 rounded-full" title="Wishlist">
-            <Heart size={26} className="drop-shadow-sm group-hover:fill-red-500 group-hover:text-red-500 transition-colors" />
-          </Link>
-          <button onClick={openCartDrawer} className="text-white/90 hover:text-white hover:scale-125 transition-all duration-300 relative group bg-transparent border-none cursor-pointer p-2 hover:bg-white/10 rounded-full" title="Cart">
-            <ShoppingCart size={26} className="drop-shadow-sm" />
-            {totalItems > 0 && (
-              <span className="absolute top-0 right-0 bg-secondary-dark text-white text-xs font-black rounded-full h-[22px] min-w-[22px] flex items-center justify-center shadow-lg border-2 border-white/20 group-hover:animate-bounce px-1 transform translate-x-1/4 -translate-y-1/4">
-                {totalItems}
-              </span>
-            )}
-          </button>
-          <button className="lg:hidden text-white hover:text-[#D6A354] hover:scale-110 transition-transform duration-300 p-2">
-            <Menu size={28} />
-          </button>
+          
+          <div className="flex items-center gap-4">
+            <Link to="/wishlist" className="text-white/80 hover:text-white transition-colors duration-300 group" title="Wishlist">
+              <Heart size={22} className="group-hover:fill-red-500 group-hover:text-red-500 hover:-translate-y-0.5 transition-all duration-300" />
+            </Link>
+            
+            <button onClick={openCartDrawer} className="text-white/80 hover:text-[#D6A354] transition-colors duration-300 relative group bg-transparent border-none cursor-pointer" title="Cart">
+              <ShoppingCart size={22} className="group-hover:-translate-y-0.5 transition-transform duration-300" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[#D6A354] text-secondary-dark text-[10px] font-bold rounded-full h-[18px] min-w-[18px] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+            
+            <button className="lg:hidden text-white/80 hover:text-white transition-colors duration-300 ml-2">
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </div>
     </header>
