@@ -33,8 +33,8 @@ export default function AdminProducts() {
     try {
       setIsLoading(true);
       const [productsRes, categoriesRes] = await Promise.all([
-        fetch('http://localhost:5000/api/products'),
-        fetch('http://localhost:5000/api/categories')
+        fetch('https://sadbhavna-api.onrender.com/api/products'),
+        fetch('https://sadbhavna-api.onrender.com/api/categories')
       ]);
       if (!productsRes.ok || !categoriesRes.ok) throw new Error('Failed to fetch data');
       const productsData = await productsRes.json();
@@ -169,12 +169,12 @@ export default function AdminProducts() {
         ...v,
         images: [],
         existingImages: v.images || [],
-        previewImages: (v.images || []).map(img => img?.includes('uploads') && !img.includes('http') ? `http://localhost:5000/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
+        previewImages: (v.images || []).map(img => img?.includes('uploads') && !img.includes('http') ? `https://sadbhavna-api.onrender.com/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
       })),
       images: [],
       existingImages: product.images || []
     });
-    setPreviewImages((product.images || []).map(img => img?.includes('uploads') && !img.includes('http') ? `http://localhost:5000/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img));
+    setPreviewImages((product.images || []).map(img => img?.includes('uploads') && !img.includes('http') ? `https://sadbhavna-api.onrender.com/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img));
     setIsModalOpen(true);
   };
 
@@ -224,7 +224,7 @@ export default function AdminProducts() {
         });
       }
 
-      const url = editingId ? `http://localhost:5000/api/products/${editingId}` : 'http://localhost:5000/api/products';
+      const url = editingId ? `https://sadbhavna-api.onrender.com/api/products/${editingId}` : 'https://sadbhavna-api.onrender.com/api/products';
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -252,7 +252,7 @@ export default function AdminProducts() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/products/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Failed to delete');
       toast.success('Product deleted');
       fetchData();
@@ -314,7 +314,7 @@ export default function AdminProducts() {
                     <td className="py-3 px-6">
                       <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
                         {p.images && p.images.length > 0 ? (
-                          <img src={p.images[0]?.includes('uploads') && !p.images[0].includes('http') ? `http://localhost:5000/${p.images[0].replace(/\\/g, '/').replace(/^\//, '')}` : p.images[0]} alt={p.name} className="w-full h-full object-cover" crossOrigin="anonymous" />
+                          <img src={p.images[0]?.includes('uploads') && !p.images[0].includes('http') ? `https://sadbhavna-api.onrender.com/${p.images[0].replace(/\\/g, '/').replace(/^\//, '')}` : p.images[0]} alt={p.name} className="w-full h-full object-cover" crossOrigin="anonymous" />
                         ) : (
                           <ImageIcon className="text-gray-400" size={20} />
                         )}

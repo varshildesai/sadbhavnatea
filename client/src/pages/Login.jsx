@@ -45,7 +45,7 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     // Redirects to backend Google OAuth route
-    window.location.href = 'http://localhost:5000/api/auth/google';
+    window.location.href = 'https://sadbhavna-api.onrender.com/api/auth/google';
   };
 
   return (

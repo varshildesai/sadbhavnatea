@@ -39,8 +39,8 @@ export default function Products() {
       try {
         setIsLoading(true);
         const [productsRes, categoriesRes] = await Promise.all([
-          fetch('http://localhost:5000/api/products'),
-          fetch('http://localhost:5000/api/categories')
+          fetch('https://sadbhavna-api.onrender.com/api/products'),
+          fetch('https://sadbhavna-api.onrender.com/api/categories')
         ]);
         const productsData = await productsRes.json();
         const categoriesData = await categoriesRes.json();

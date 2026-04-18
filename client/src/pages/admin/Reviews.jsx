@@ -11,7 +11,7 @@ export default function AdminReviews() {
   const fetchReviews = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch('http://localhost:5000/api/reviews', {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/reviews', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}`
         }
@@ -37,7 +37,7 @@ export default function AdminReviews() {
   const handleReplySubmit = async (id) => {
     if (!replyInput[id] || replyInput[id].trim() === '') return;
     try {
-      const res = await fetch(`http://localhost:5000/api/reviews/${id}/reply`, {
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/reviews/${id}/reply`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export default function AdminReviews() {
 
   const handleToggleVisibility = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/reviews/${id}/visibility`, {
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/reviews/${id}/visibility`, {
         method: 'PUT',
         headers: { 
           'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}` 
@@ -73,7 +73,7 @@ export default function AdminReviews() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this review FOREVER?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/reviews/${id}`, {
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/reviews/${id}`, {
         method: 'DELETE',
         headers: { 
           'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}` 

@@ -50,7 +50,7 @@ export default function Cart() {
                         }
                         
                         const finalSrc = imgSrc.includes('uploads') && !imgSrc.includes('http') 
-                          ? `http://localhost:5000/${imgSrc.replace(/\\/g, '/').replace(/^\//, '')}` 
+                          ? `https://sadbhavna-api.onrender.com/${imgSrc.replace(/\\/g, '/').replace(/^\//, '')}` 
                           : imgSrc;
                         return <img src={finalSrc} alt={item.name} className="w-20 h-20 object-cover rounded-lg bg-surface border p-1 group-hover:ring-2 ring-primary transition-all" />;
                       })()}

@@ -61,9 +61,9 @@ export default function ProductDetails() {
     const fetchProductAndReviews = async () => {
       try {
         const [prodRes, revRes, allProdRes] = await Promise.all([
-          fetch(`http://localhost:5000/api/products/${id}`),
-          fetch(`http://localhost:5000/api/reviews/product/${id}`),
-          fetch(`http://localhost:5000/api/products`)
+          fetch(`https://sadbhavna-api.onrender.com/api/products/${id}`),
+          fetch(`https://sadbhavna-api.onrender.com/api/reviews/product/${id}`),
+          fetch(`https://sadbhavna-api.onrender.com/api/products`)
         ]);
 
         if (!prodRes.ok) throw new Error('Product not found');
@@ -75,12 +75,12 @@ export default function ProductDetails() {
         const formatData = {
           ...prodData,
           images: prodData.images && prodData.images.length > 0 
-            ? prodData.images.map(img => img?.includes('uploads') && !img.includes('http') ? `http://localhost:5000/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
-            : ['http://localhost:5000/uploads/default.jpg'],
+            ? prodData.images.map(img => img?.includes('uploads') && !img.includes('http') ? `https://sadbhavna-api.onrender.com/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
+            : ['https://sadbhavna-api.onrender.com/uploads/default.jpg'],
           variants: (prodData.variants || []).map(v => ({
             ...v,
             images: v.images && v.images.length > 0
-              ? v.images.map(img => img?.includes('uploads') && !img.includes('http') ? `http://localhost:5000/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
+              ? v.images.map(img => img?.includes('uploads') && !img.includes('http') ? `https://sadbhavna-api.onrender.com/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
               : []
           })),
           originalPrice: Math.round(prodData.price * 1.2),
@@ -133,8 +133,8 @@ export default function ProductDetails() {
           .map(p => ({
             ...p,
             images: p.images && p.images.length > 0
-              ? p.images.map(img => img?.includes('uploads') && !img.includes('http') ? `http://localhost:5000/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
-              : ['http://localhost:5000/uploads/default.jpg']
+              ? p.images.map(img => img?.includes('uploads') && !img.includes('http') ? `https://sadbhavna-api.onrender.com/${img.replace(/\\/g, '/').replace(/^\//, '')}` : img)
+              : ['https://sadbhavna-api.onrender.com/uploads/default.jpg']
           }));
         setRelatedProducts(related);
 
@@ -176,7 +176,7 @@ export default function ProductDetails() {
   const handleWishlistToggle = async () => {
     if (!user) return toast.error('Please login to use wishlist');
     try {
-      const res = await fetch('http://localhost:5000/api/auth/wishlist', {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/wishlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId: user._id, productId: product._id }),
@@ -216,8 +216,8 @@ export default function ProductDetails() {
     setSubmittingReview(true);
     try {
       const url = editingReviewId 
-        ? `http://localhost:5000/api/reviews/${editingReviewId}` 
-        : `http://localhost:5000/api/reviews/product/${product._id}`;
+        ? `https://sadbhavna-api.onrender.com/api/reviews/${editingReviewId}` 
+        : `https://sadbhavna-api.onrender.com/api/reviews/product/${product._id}`;
       const method = editingReviewId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -239,7 +239,7 @@ export default function ProductDetails() {
       setEditingReviewId(null);
       
       // Refresh reviews
-      const revRes = await fetch(`http://localhost:5000/api/reviews/product/${product._id}`);
+      const revRes = await fetch(`https://sadbhavna-api.onrender.com/api/reviews/product/${product._id}`);
       setReviews(await revRes.json());
     } catch (err) {
       toast.error(err.message || 'Failed to submit review');
@@ -251,7 +251,7 @@ export default function ProductDetails() {
   const deleteReview = async (reviewId) => {
     if (!window.confirm('Are you sure you want to delete this review?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/reviews/${reviewId}`, {
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/reviews/${reviewId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}` }
       });

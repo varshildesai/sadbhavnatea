@@ -39,7 +39,7 @@ export default function ProductCard({ product }) {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/api/auth/wishlist', {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/wishlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId: user._id, productId: item.originalProductId || item._id }),
@@ -61,12 +61,12 @@ export default function ProductCard({ product }) {
 
   const imgSource = item.image ? item.image : (item.images && item.images.length > 0 ? item.images[0] : '/uploads/default.jpg');
   const imageUrl = imgSource?.includes('uploads') && !imgSource.includes('http')
-    ? `http://localhost:5000/${imgSource.replace(/\\/g, '/').replace(/^\//, '')}` 
+    ? `https://sadbhavna-api.onrender.com/${imgSource.replace(/\\/g, '/').replace(/^\//, '')}` 
     : imgSource;
 
   const secondImgSource = item.images && item.images.length > 1 ? item.images[1] : null;
   const secondImageUrl = secondImgSource?.includes('uploads') && !secondImgSource.includes('http')
-    ? `http://localhost:5000/${secondImgSource.replace(/\\/g, '/').replace(/^\//, '')}`
+    ? `https://sadbhavna-api.onrender.com/${secondImgSource.replace(/\\/g, '/').replace(/^\//, '')}`
     : secondImgSource;
 
   const linkId = item.originalProductId || item._id;

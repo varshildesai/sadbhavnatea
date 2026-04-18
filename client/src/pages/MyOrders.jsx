@@ -12,7 +12,7 @@ export default function MyOrders() {
   useEffect(() => {
     const fetchMyOrders = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/orders/myorders', {
+        const res = await fetch('https://sadbhavna-api.onrender.com/api/orders/myorders', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {
@@ -181,7 +181,7 @@ export default function MyOrders() {
                             <div key={id} className="flex items-center gap-4 bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
                               <div className="w-16 h-16 bg-surface rounded-lg overflow-hidden flex items-center justify-center border border-gray-100">
                                 {item.image ? (
-                                  <img src={`http://localhost:5000${item.image}`} alt={item.name} className="w-full h-full object-cover" />
+                                  <img src={`https://sadbhavna-api.onrender.com${item.image}`} alt={item.name} className="w-full h-full object-cover" />
                                 ) : (
                                   <Package className="text-gray-300" size={24} />
                                 )}

@@ -14,7 +14,7 @@ export default function Dashboard() {
     const fetchStats = async () => {
       if (!token) return;
       try {
-        const res = await fetch('http://localhost:5000/api/admin/stats', {
+        const res = await fetch('https://sadbhavna-api.onrender.com/api/admin/stats', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {

@@ -12,7 +12,7 @@ const MiniCartDrawer = () => {
   const getImageUrl = (item) => {
     const imgSource = item.image || item.images?.[0] || '/placeholder.jpg';
     return imgSource?.includes('uploads') && !imgSource.includes('http')
-      ? `http://localhost:5000/${imgSource.replace(/\\/g, '/').replace(/^\//, '')}` 
+      ? `https://sadbhavna-api.onrender.com/${imgSource.replace(/\\/g, '/').replace(/^\//, '')}` 
       : imgSource;
   };
 

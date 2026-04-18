@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
       let activeItems = [];
       if (user && user._id) {
         try {
-          const res = await fetch('http://localhost:5000/api/cart', {
+          const res = await fetch('https://sadbhavna-api.onrender.com/api/cart', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}` }
           });
           const data = await res.json();
@@ -73,7 +73,7 @@ export const CartProvider = ({ children }) => {
 
     // Sync back to db if user logged in
     if (user && user._id) {
-      fetch('http://localhost:5000/api/cart/sync', {
+      fetch('https://sadbhavna-api.onrender.com/api/cart/sync', {
          method: 'POST',
          headers: {
            'Content-Type': 'application/json',

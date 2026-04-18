@@ -8,7 +8,7 @@ export default function Users() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/admin/users', {
+        const res = await fetch('https://sadbhavna-api.onrender.com/api/admin/users', {
           headers: {
             Authorization: `Bearer ${token}`
           }

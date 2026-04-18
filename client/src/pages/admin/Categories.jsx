@@ -20,7 +20,7 @@ export default function AdminCategories() {
   const fetchCategories = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch('http://localhost:5000/api/categories');
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/categories');
       if (!res.ok) throw new Error('Failed to fetch');
       const data = await res.json();
       setCategories(data);
@@ -54,7 +54,7 @@ export default function AdminCategories() {
     setIsSubmitting(true);
     
     try {
-      const url = editingId ? `http://localhost:5000/api/categories/${editingId}` : 'http://localhost:5000/api/categories';
+      const url = editingId ? `https://sadbhavna-api.onrender.com/api/categories/${editingId}` : 'https://sadbhavna-api.onrender.com/api/categories';
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -84,7 +84,7 @@ export default function AdminCategories() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this category?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/categories/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/categories/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Failed to delete');
       toast.success('Category deleted');
       fetchCategories();

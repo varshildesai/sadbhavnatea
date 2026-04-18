@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchFeatured = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch('https://sadbhavna-api.onrender.com/api/products');
         if (res.ok) {
           const data = await res.json();
           const flattenedProducts = [];

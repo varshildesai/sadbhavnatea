@@ -16,7 +16,7 @@ export default function Wishlist() {
          return;
       }
       try {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch('https://sadbhavna-api.onrender.com/api/products');
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
         

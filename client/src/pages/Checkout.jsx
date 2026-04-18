@@ -77,7 +77,7 @@ export default function Checkout() {
         };
       }
 
-      const res = await fetch('http://localhost:5000/api/orders', {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/orders', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -111,11 +111,11 @@ export default function Checkout() {
     toast.loading('Initializing Razorpay...', { id: 'payment' });
 
     try {
-      const configRes = await fetch('http://localhost:5000/api/config/razorpay');
+      const configRes = await fetch('https://sadbhavna-api.onrender.com/api/config/razorpay');
       if (!configRes.ok) throw new Error('Could not fetch Razorpay config');
       const keyId = await configRes.text();
 
-      const orderRes = await fetch('http://localhost:5000/api/orders/razorpay', {
+      const orderRes = await fetch('https://sadbhavna-api.onrender.com/api/orders/razorpay', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: total })

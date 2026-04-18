@@ -23,7 +23,7 @@ export default function AdminOrders() {
   const fetchOrders = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch('http://localhost:5000/api/orders');
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/orders');
       if (!res.ok) throw new Error('Failed to fetch');
       const data = await res.json();
       setOrders(data);
@@ -44,7 +44,7 @@ export default function AdminOrders() {
     
     try {
       setIsUpdating(true);
-      const res = await fetch(`http://localhost:5000/api/orders/${selectedOrder._id}/status`, {
+      const res = await fetch(`https://sadbhavna-api.onrender.com/api/orders/${selectedOrder._id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
