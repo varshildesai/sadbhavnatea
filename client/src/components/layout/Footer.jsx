@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="absolute inset-0 bg-black/10 z-0"></div>
       <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
         <div className="flex flex-col items-start">
-          <div className="w-[300px] mb-6 flex items-center justify-start group-hover:-translate-y-1 transition-transform">
-            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="w-full h-auto object-contain drop-shadow-2xl"/>
+          <div className="w-[300px] mb-6 -ml-4 flex items-center justify-start group-hover:-translate-y-1 transition-transform">
+            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="w-full h-auto object-contain object-left drop-shadow-2xl"/>
           </div>
           <p className="font-serif italic text-[#D6A354] text-lg mb-2">A sip of purity, a taste of tradition.</p>
           <p className="text-gray-100 text-sm leading-relaxed pr-4 mb-6">
