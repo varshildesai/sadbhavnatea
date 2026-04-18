@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { showWishlistToast, showErrorToast } from '../../utils/toastHelpers';
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, isListMode = false }) {
   const { addToCart } = useCart();
   const { user, setUser } = useAuth();
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -81,12 +81,12 @@ export default function ProductCard({ product }) {
   const discountPercent = Math.round(((mrp - item.price) / mrp) * 100);
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow group flex flex-col h-full relative">
+    <div className={`bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow group flex ${isListMode ? 'flex-row items-stretch' : 'flex-col h-full'} relative`}>
       <button onClick={handleWishlistToggle} className="absolute top-2 right-2 z-20 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-sm text-gray-400 hover:text-red-500 transition-colors">
         <Heart size={16} className={isWishlisted ? "fill-red-500 text-red-500" : ""} />
       </button>
 
-      <div className="relative aspect-square overflow-hidden bg-white shrink-0 p-2">
+      <div className={`relative overflow-hidden bg-white shrink-0 p-2 ${isListMode ? 'w-32 sm:w-40 md:w-48 aspect-square flex items-center justify-center' : 'aspect-square'}`}>
         <Link to={linkUrl} className="block w-full h-full relative">
           <img 
             src={imageUrl} 
@@ -104,20 +104,22 @@ export default function ProductCard({ product }) {
           )}
         </Link>
         {/* Only show category badge on desktop, it's too much clutter on mobile */}
-        <div className="hidden md:block absolute top-2 left-2 z-10 bg-secondary/90 text-white text-[10px] font-bold px-2 py-0.5 rounded text-gray-800 shadow-sm backdrop-blur">
-          {item.category}
-        </div>
+        {!isListMode && (
+          <div className="hidden md:block absolute top-2 left-2 z-10 bg-secondary/90 text-white text-[10px] font-bold px-2 py-0.5 rounded text-gray-800 shadow-sm backdrop-blur">
+            {item.category}
+          </div>
+        )}
       </div>
       
-      <div className="p-3 md:p-4 flex flex-col flex-1 border-t border-gray-100">
+      <div className={`p-3 flex flex-col flex-1 border-gray-100 ${isListMode ? 'border-l justify-center md:p-4' : 'border-t md:p-4'}`}>
         <Link to={linkUrl}>
-          <h3 className="font-medium text-gray-900 text-sm md:text-base leading-tight hover:text-primary transition-colors line-clamp-2 min-h-[40px] md:min-h-[44px]">
+          <h3 className={`font-medium text-gray-900 leading-tight hover:text-primary transition-colors line-clamp-2 ${isListMode ? 'text-sm md:text-lg mb-1' : 'text-sm md:text-base min-h-[40px] md:min-h-[44px]'}`}>
             {item.name} {item.variantLabel ? ` - ${item.variantLabel}` : ''}
           </h3>
         </Link>
         
         {/* Ratings block - Amazon style */}
-        <div className="flex items-center gap-1 mt-1 md:mt-2 mb-1">
+        <div className="flex items-center gap-1 mt-1 mb-1">
           <div className="flex text-[#FFA41C]">
             {[...Array(5)].map((_, i) => (
               <svg key={i} className={`w-3 h-3 md:w-4 md:h-4 ${i < Math.floor(item.rating || 4.5) ? 'fill-current' : 'text-gray-300 fill-current'}`} viewBox="0 0 20 20">
@@ -129,9 +131,9 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Pricing block - Amazon style */}
-        <div className="flex flex-col mt-auto pt-2">
+        <div className="flex flex-col mt-auto pt-1 md:pt-2">
           <div className="flex items-end gap-1 flex-wrap">
-            <span className="text-lg md:text-xl font-bold text-gray-900">
+            <span className={`font-bold text-gray-900 ${isListMode ? 'text-lg md:text-2xl' : 'text-lg md:text-xl'}`}>
               <span className="text-sm font-medium mr-[1px]">₹</span>{item.price}
             </span>
             <span className="text-[10px] md:text-xs text-gray-500 line-through mb-[3px] md:mb-[4px]">
@@ -143,14 +145,14 @@ export default function ProductCard({ product }) {
           </div>
           
           {/* Prime/Delivery mock styled with theme */}
-          <div className="text-[10px] md:text-xs text-gray-600 mt-1 mb-3">
+          <div className="text-[10px] md:text-xs text-gray-600 mt-1 mb-2 md:mb-3">
              <span className="font-bold text-primary">✓</span> <span className="font-bold text-gray-800">Sadbhavna</span> Delivered
           </div>
 
           {/* Full width Add to Cart button - Theme Colors */}
           <button 
             onClick={handleAddToCart}
-            className="w-full bg-primary hover:bg-primary-dark text-white border border-primary-dark py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-colors flex items-center justify-center gap-2 mt-auto"
+            className={`bg-primary hover:bg-primary-dark text-white border border-primary-dark rounded-xl font-bold shadow-sm transition-colors flex items-center justify-center gap-2 mt-auto ${isListMode ? 'w-full max-w-[200px] py-2 text-xs md:text-sm' : 'w-full py-2 md:py-2.5 text-xs md:text-sm'}`}
           >
             Add to Cart
           </button>
