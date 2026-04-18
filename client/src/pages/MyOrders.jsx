@@ -226,9 +226,24 @@ export default function MyOrders() {
                                 <FileText size={16} /> Download Invoice
                               </button>
                             </Link>
-                            <button className="w-full bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-gray-700 shadow-sm">
-                              <LifeBuoy size={16} /> Contact Support
-                            </button>
+                            <div className="w-full bg-primary/5 border border-primary/20 rounded-xl p-4 mt-2">
+                              <div className="flex items-center gap-2 mb-3 text-primary-dark font-bold text-sm">
+                                <LifeBuoy size={16} /> Contact Support
+                              </div>
+                              <div className="space-y-2 text-sm text-gray-700">
+                                <p className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                                  <span className="font-semibold w-24">Email:</span>
+                                  <a href="mailto:sadbhavnafoodspvtltd@gmail.com" className="hover:text-primary font-medium transition-colors break-all">sadbhavnafoodspvtltd@gmail.com</a>
+                                </p>
+                                <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2">
+                                  <span className="font-semibold w-24 shrink-0">Customer Care:</span>
+                                  <div className="flex flex-col gap-1 font-medium">
+                                    <a href="tel:+917878924167" className="hover:text-primary transition-colors">+91 78789 24167</a>
+                                    <a href="tel:+918154814142" className="hover:text-primary transition-colors">+91 81548 14142</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

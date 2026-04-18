@@ -178,7 +178,10 @@ export default function ProductDetails() {
     try {
       const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/wishlist', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}`
+        },
         body: JSON.stringify({ userId: user._id, productId: product._id }),
       });
       if (!res.ok) throw new Error();
@@ -481,7 +484,7 @@ export default function ProductDetails() {
               <div className="flex items-center gap-6 text-sm text-gray-600 font-medium bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
                 <div className="flex items-center gap-2">
                   <Truck className="text-secondary" size={24} />
-                  <span>Ships in 24 hrs</span>
+                  <span>Ships within 7 days</span>
                 </div>
                 <div className="w-px h-6 bg-gray-200"></div>
                 <div className="flex items-center gap-2">

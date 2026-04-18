@@ -40,10 +40,10 @@ export default function Home() {
           // Organize
           setFeaturedProducts(flattenedProducts.slice(0, 4));
           
-          const machines = flattenedProducts.filter(p => p.category.toLowerCase().includes('machine'));
+          const machines = flattenedProducts.filter(p => p.category?.toLowerCase().includes('machine'));
           setVendingMachines(machines.slice(0, 4)); // Show top 4 machines
           
-          const authenticTeas = flattenedProducts.filter(p => !p.category.toLowerCase().includes('machine'));
+          const authenticTeas = flattenedProducts.filter(p => !p.category?.toLowerCase().includes('machine'));
           setTeas(authenticTeas.slice(0, 4)); // Show top 4 teas/masalas
         }
       } catch (err) {

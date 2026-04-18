@@ -88,8 +88,8 @@ export default function Products() {
 
   // Apply filtering
   const filteredProducts = products.filter(p => {
-    const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || p.category.toLowerCase() === selectedCategory.toLowerCase();
+    const matchesSearch = p.name?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false;
+    const matchesCategory = selectedCategory === 'All' || p.category?.toLowerCase() === selectedCategory.toLowerCase();
     return matchesSearch && matchesCategory;
   }).sort((a, b) => {
     switch (sortBy) {

@@ -42,7 +42,10 @@ export default function ProductCard({ product }) {
     try {
       const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/wishlist', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('sadbhavna_token')}`
+        },
         body: JSON.stringify({ userId: user._id, productId: item.originalProductId || item._id }),
       });
       if (!res.ok) throw new Error();
