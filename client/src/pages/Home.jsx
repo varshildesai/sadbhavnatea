@@ -58,27 +58,30 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-12 pb-16 bg-[#FDFBF7]">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-secondary-dark via-secondary to-[#004a1f] pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden rounded-b-[3rem] shadow-2xl">
+      <section className="relative bg-gradient-to-br from-secondary-dark via-secondary to-[#004a1f] pt-16 pb-16 md:pt-24 md:pb-20 lg:pt-32 lg:pb-32 overflow-hidden rounded-b-[2rem] lg:rounded-b-[3rem] shadow-2xl">
         <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8">
             {/* Text Content */}
-            <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
-              <span className="text-white font-bold tracking-widest uppercase mb-4 inline-block bg-primary/90 backdrop-blur-md border border-primary-light/30 px-5 py-2 rounded-full w-max mx-auto lg:mx-0 text-xs sm:text-sm shadow-lg shadow-primary/20 flex items-center gap-2">
-                <Leaf size={14} /> 100% Organic & Natural
-              </span>
-              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                Awaken Your <br className="hidden lg:block" />Senses With <br className="hidden lg:block" /><span className="text-primary-light font-serif italic text-5xl md:text-6xl lg:text-[4rem] leading-tight">Sadbhavna</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
-                Experience the authentic taste of Assam. From hand-picked premium CTC teas to state-of-the-art Atlantis vending machines. Everything you need for the perfect cup.
-              </p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <Button size="lg" to="/products" className="bg-primary hover:bg-primary-light text-white border-none shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 !px-8 !py-4 text-lg transition-all font-bold flex items-center gap-2">
-                  Shop Our Collection <ChevronRight size={20} />
-                </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 text-white hover:bg-white hover:text-secondary-dark border-white/30 backdrop-blur-sm hover:-translate-y-1 !px-8 !py-4 text-lg transition-all font-bold" to="/category/vending-machine">
-                  View Machines
-                </Button>
+            <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left relative z-20">
+              {/* Added frosted glass effect container for mobile readability */}
+              <div className="bg-black/20 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 md:p-8 lg:p-0 rounded-3xl lg:rounded-none border border-white/10 lg:border-none shadow-2xl lg:shadow-none">
+                <span className="text-white font-bold tracking-widest uppercase mb-4 inline-block bg-primary/90 backdrop-blur-md border border-primary-light/30 px-5 py-2 rounded-full w-max mx-auto lg:mx-0 text-xs sm:text-sm shadow-lg shadow-primary/20 flex items-center gap-2">
+                  <Leaf size={14} /> 100% Organic & Natural
+                </span>
+                <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                  Awaken Your <br className="hidden lg:block" />Senses With <br className="hidden lg:block" /><span className="text-primary-light font-serif italic text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] leading-tight">Sadbhavna</span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
+                  Experience the authentic taste of Assam. From hand-picked premium CTC teas to state-of-the-art Atlantis vending machines. Everything you need for the perfect cup.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                  <Button size="lg" to="/products" className="bg-primary hover:bg-primary-light text-white border-none shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 !px-8 !py-4 text-base sm:text-lg transition-all font-bold flex items-center justify-center gap-2 w-full sm:w-auto">
+                    Shop Our Collection <ChevronRight size={20} />
+                  </Button>
+                  <Button variant="outline" size="lg" className="bg-white/10 text-white hover:bg-white hover:text-secondary-dark border-white/30 backdrop-blur-sm hover:-translate-y-1 !px-8 !py-4 text-base sm:text-lg transition-all font-bold w-full sm:w-auto" to="/category/vending-machine">
+                    View Machines
+                  </Button>
+                </div>
               </div>
             </div>
             

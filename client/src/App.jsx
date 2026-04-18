@@ -32,7 +32,6 @@ import { UIProvider } from './context/UIContext';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import { Toaster } from 'react-hot-toast';
 import MiniCartDrawer from './components/ui/MiniCartDrawer';
-import FirstVisitModal from './components/ui/FirstVisitModal';
 import InactiveReminder from './components/ui/InactiveReminder';
 
 function App() {
@@ -45,7 +44,6 @@ function App() {
       <Router>
         <ScrollToTop />
         <MiniCartDrawer />
-        <FirstVisitModal />
         <InactiveReminder />
       <Routes>
         {/* Admin Routes with Layout */}
