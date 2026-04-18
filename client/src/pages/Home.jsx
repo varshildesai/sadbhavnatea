@@ -66,8 +66,8 @@ export default function Home() {
               <span className="text-white font-bold tracking-widest uppercase mb-4 inline-block bg-primary/90 backdrop-blur-md border border-primary-light/30 px-5 py-2 rounded-full w-max mx-auto lg:mx-0 text-xs sm:text-sm shadow-lg shadow-primary/20 flex items-center gap-2">
                 <Leaf size={14} /> 100% Organic & Natural
               </span>
-              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                Awaken Your <br className="hidden lg:block" />Senses With <br className="hidden lg:block" /><span className="text-primary-light font-serif italic text-6xl md:text-7xl">Sadbhavna</span>
+              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                Awaken Your <br className="hidden lg:block" />Senses With <br className="hidden lg:block" /><span className="text-primary-light font-serif italic text-5xl md:text-6xl lg:text-[4rem] leading-tight">Sadbhavna</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
                 Experience the authentic taste of Assam. From hand-picked premium CTC teas to state-of-the-art Atlantis vending machines. Everything you need for the perfect cup.
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
             
             {/* Image Content */}
-            <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0 px-4 sm:px-12 lg:px-0">
+            <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0 px-4 sm:px-12 lg:px-8 xl:px-12 flex justify-center lg:justify-end">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary rounded-full blur-[120px] opacity-40 -z-10 mix-blend-screen"></div>
               
               <div className="relative">
