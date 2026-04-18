@@ -66,13 +66,14 @@ function App() {
             <Navbar />
             <main className="flex-grow">
               <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/category/:categoryId" element={<Products />} />
+                <Route path="/categories" element={<Products />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
+                
                 <Route element={<UserProtectedRoute />}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/category/:categoryId" element={<Products />} />
-                  <Route path="/categories" element={<Products />} />
-                  <Route path="/product/:id" element={<ProductDetails />} />
-                  <Route path="/cart" element={<Cart />} />
                   <Route path="/wishlist" element={<Wishlist />} />
                   <Route path="/my-orders" element={<MyOrders />} />
                   <Route path="/checkout" element={<Checkout />} />
