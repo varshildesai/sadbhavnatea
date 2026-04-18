@@ -164,7 +164,7 @@ export default function Home() {
             View All Products <ChevronRight size={18} />
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
           {isLoading ? (
             <div className="col-span-1 lg:col-span-4 text-center py-20 text-gray-500">Loading premium collection...</div>
           ) : featuredProducts.length > 0 ? (
@@ -196,7 +196,7 @@ export default function Home() {
               </Button>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
               {vendingMachines.map((p) => (
                 <div key={p._id} className="bg-white text-gray-900 rounded-2xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
                   <ProductCard product={p} />
@@ -221,7 +221,7 @@ export default function Home() {
                <p className="text-gray-600 text-lg">Curated directly from the finest tea estates to guarantee the ultimate Sadbhavna aroma in every sip you take today.</p>
              </div>
              
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 relative z-10">
                {teas.map((p) => (
                  <ProductCard key={p._id} product={p} />
                ))}

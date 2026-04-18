@@ -9,6 +9,7 @@ export const useUI = () => {
 export const UIProvider = ({ children }) => {
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   const [isFirstVisitModalOpen, setIsFirstVisitModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check if user has visited before
@@ -36,6 +37,8 @@ export const UIProvider = ({ children }) => {
         closeCartDrawer,
         isFirstVisitModalOpen,
         closeFirstVisitModal,
+        isMobileMenuOpen,
+        setIsMobileMenuOpen,
       }}
     >
       {children}

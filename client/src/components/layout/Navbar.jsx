@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, User, Menu, X, LogOut, Heart, Home, ShoppingBag, Grid, Info, Package } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
@@ -8,9 +7,8 @@ import { useUI } from '../../context/UIContext';
 export default function Navbar() {
   const { totalItems } = useCart();
   const { user, logout } = useAuth();
-  const { openCartDrawer } = useUI();
+  const { openCartDrawer, isMobileMenuOpen, setIsMobileMenuOpen } = useUI();
   const navigate = useNavigate();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
     logout();

@@ -14,6 +14,7 @@ import Wishlist from './pages/Wishlist';
 import MyOrders from './pages/MyOrders';
 import Invoice from './pages/Invoice';
 import ScrollToTop from './components/layout/ScrollToTop';
+import BottomNav from './components/layout/BottomNav';
 
 // Admin Pages
 import AdminLayout from './layouts/AdminLayout';
@@ -63,7 +64,7 @@ function App() {
         <Route path="/*" element={
           <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-grow">
+            <main className="flex-grow pb-16 md:pb-0">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products />} />
@@ -85,6 +86,7 @@ function App() {
               </Routes>
             </main>
             <Footer />
+            <BottomNav />
           </div>
         } />
       </Routes>
