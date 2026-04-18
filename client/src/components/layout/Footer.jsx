@@ -6,9 +6,9 @@ export default function Footer() {
       className="text-white pt-16 pb-8 border-t-[6px] border-[#D6A354] mt-16 overflow-hidden relative selection:bg-white selection:text-[#064e3b] bg-gradient-to-r from-[#d96b00] to-[#064e3b]"
     >
       <div className="absolute inset-0 bg-black/10 z-0"></div>
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
         <div className="flex flex-col items-start">
-          <div className="w-[300px] mb-6 -ml-6 flex items-center justify-start group-hover:-translate-y-1 transition-transform">
+          <div className="w-[300px] mb-6 flex items-center justify-start group-hover:-translate-y-1 transition-transform">
             <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="w-full h-auto object-contain drop-shadow-2xl"/>
           </div>
           <p className="font-serif italic text-[#D6A354] text-lg mb-2">A sip of purity, a taste of tradition.</p>
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
       </div>
       
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400 relative z-10">
         <p>&copy; {new Date().getFullYear()} Sadbhavna Foods Pvt. Ltd. All rights reserved.</p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-white hover:underline transition-colors">Privacy Policy</a>

@@ -62,7 +62,7 @@ export default function MyOrders() {
 
   return (
     <div className="bg-surface min-h-[80vh] py-10 lg:py-16">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 max-w-5xl">
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 max-w-5xl">
         <h1 className="text-3xl font-black text-gray-900 mb-8 border-b border-gray-200 pb-4">My Orders</h1>
         
         {orders.length === 0 ? (

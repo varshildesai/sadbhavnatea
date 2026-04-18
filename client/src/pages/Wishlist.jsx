@@ -41,7 +41,7 @@ export default function Wishlist() {
   }
 
   return (
-    <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-12">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 py-12">
       <div className="flex items-center gap-3 mb-8">
         <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center border border-secondary/20">
           <Heart size={24} className="text-secondary" />

@@ -272,7 +272,7 @@ export default function ProductDetails() {
 
   return (
     <div className="bg-surface min-h-screen">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 py-10">
         <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden mb-12">
           <div className="flex flex-col lg:flex-row">
             

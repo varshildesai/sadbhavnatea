@@ -59,7 +59,7 @@ export default function Home() {
     <div className="flex flex-col gap-12 pb-16 bg-[#FDFBF7]">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-secondary-dark via-secondary to-[#004a1f] pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden rounded-b-[3rem] shadow-2xl">
-        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 relative z-10">
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
             {/* Text Content */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
@@ -115,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* Trust Badges */}
-      <section className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 -mt-8 relative z-20">
+      <section className="w-full max-w-[1600px] mx-auto px-4 md:px-10 -mt-8 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl border border-primary/10 p-6 md:p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-100">
             <div className="flex flex-col items-center text-center px-4 pt-4 md:pt-0">
@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* Best Sellers Section */}
-      <section className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-8">
+      <section className="w-full max-w-[1600px] mx-auto px-4 md:px-10 py-8">
         <div className="flex justify-between items-end mb-10 border-b border-gray-200 pb-4">
           <div>
             <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-2">Customer Favorites</h2>
@@ -181,7 +181,7 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary to-transparent opacity-50 pointer-events-none"></div>
           <div className="absolute -left-32 -top-32 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
           
-          <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 relative z-10">
+          <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6">
               <div className="text-center md:text-left">
                 <span className="text-primary-light font-bold tracking-widest uppercase mb-2 block text-sm">Commercial Excellence</span>
@@ -206,7 +206,7 @@ export default function Home() {
 
       {/* Pure Tea & Spices Spotlight */}
       {teas.length > 0 && (
-        <section className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-16">
+        <section className="w-full max-w-[1600px] mx-auto px-4 md:px-10 py-16">
           <div className="bg-orange-50 rounded-[3rem] p-8 md:p-12 lg:p-16 border border-orange-100 shadow-sm relative overflow-hidden">
              {/* Decor */}
              <div className="absolute right-0 top-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
@@ -228,7 +228,7 @@ export default function Home() {
       )}
 
       {/* Reviews Section */}
-      <section className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-8 mb-12">
+      <section className="w-full max-w-[1600px] mx-auto px-4 md:px-10 py-8 mb-12">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Trusted By Thousands</h2>
           <p className="text-gray-500 font-medium">Join our community of tea and coffee enthusiasts across India</p>
@@ -275,7 +275,7 @@ export default function Home() {
       </section>
       
       {/* Instagram / Poetry CTA */}
-      <section className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
+      <section className="w-full max-w-[1600px] mx-auto px-4 md:px-10">
          <div className="bg-gradient-to-r from-primary-dark to-primary rounded-[3rem] overflow-hidden relative group">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
             

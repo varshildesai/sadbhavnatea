@@ -112,7 +112,7 @@ export default function Products() {
   );
 
   return (
-    <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-8">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-10 py-8">
       {/* Page Header */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
         <h1 className="text-3xl font-extrabold text-gray-800">
