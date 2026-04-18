@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <header className="bg-gradient-to-r from-[#d96b00] to-[#064e3b] shadow-lg sticky top-0 z-50 text-white border-b border-white/10">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center overflow-visible">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-3 flex justify-between items-center overflow-visible">
         <Link to="/" className="flex items-center shrink-0 -ml-2 lg:-ml-6 mr-6 md:mr-16">
           <div className="flex items-center justify-center transform scale-125 md:scale-150 origin-left">
             <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-12 md:h-14 lg:h-16 w-auto object-contain drop-shadow-2xl" />

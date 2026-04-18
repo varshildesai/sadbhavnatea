@@ -185,7 +185,7 @@ export default function Checkout() {
 
   return (
     <div className="bg-surface min-h-screen">
-      <div className="container mx-auto px-4 py-10">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-10">
         <h1 className="text-3xl font-black text-gray-900 mb-8 border-b border-gray-200 pb-4">Secure Checkout</h1>
         
         <div className="flex flex-col lg:flex-row gap-8">

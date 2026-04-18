@@ -11,7 +11,7 @@ export default function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-20 text-center">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-20 text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Cart is Empty</h2>
         <p className="text-gray-500 mb-8">Looks like you haven't added anything to your cart yet.</p>
         <Button to="/products" size="lg">Start Shopping</Button>
@@ -20,7 +20,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-10">
       <h1 className="text-3xl font-extrabold text-gray-800 mb-8">Shopping Cart</h1>
       
       <div className="flex flex-col lg:flex-row gap-8">

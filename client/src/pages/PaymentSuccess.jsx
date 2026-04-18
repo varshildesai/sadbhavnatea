@@ -13,7 +13,7 @@ export default function PaymentSuccess() {
 
   return (
     <div className="bg-surface min-h-[70vh] py-16 flex items-center">
-      <div className="container mx-auto px-4 max-w-2xl text-center">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 max-w-2xl text-center">
         <div className="bg-white rounded-[2rem] p-10 md:p-16 shadow-lg border border-gray-100 flex flex-col items-center">
           <div className="w-24 h-24 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-8 shadow-sm">
             <CheckCircle size={64} className="animate-pulse" />

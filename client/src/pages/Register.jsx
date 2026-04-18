@@ -56,7 +56,7 @@ export default function Register() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-20 flex justify-center items-center min-h-[70vh]">
+    <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-20 flex justify-center items-center min-h-[70vh]">
       <div className="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-gray-100 max-w-md w-full relative overflow-hidden">
         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary-light rounded-full opacity-50"></div>
         
