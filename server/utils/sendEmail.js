@@ -65,7 +65,7 @@ export const sendStatusEmail = async (order) => {
         
         ${trackingHtml}
 
-        <h3 style="border-bottom: 2px solid #e67300; padding-bottom: 5px; margin-top: 30px;">Order Summary (#${order._id.toString().slice(-8)})</h3>
+        <h3 style="border-bottom: 2px solid #e67300; padding-bottom: 5px; margin-top: 30px;">Order Summary & Invoice (#${order._id.toString().slice(-8)})</h3>
         <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
           ${productList}
           <tr>
@@ -74,6 +74,10 @@ export const sendStatusEmail = async (order) => {
           </tr>
         </table>
         
+        <div style="margin-top: 30px; text-align: center;">
+          <a href="${process.env.CLIENT_URL || 'https://sadbhavnatea.vercel.app'}/invoice/${order._id}" style="background-color: #007a33; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">Download Full Invoice PDF</a>
+        </div>
+
         <p style="margin-top: 30px; font-size: 14px; color: #666;">Thank you for shopping with us!</p>
       </div>
     </div>

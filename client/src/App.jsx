@@ -12,6 +12,7 @@ import AuthSuccess from './pages/AuthSuccess';
 import PaymentSuccess from './pages/PaymentSuccess';
 import Wishlist from './pages/Wishlist';
 import MyOrders from './pages/MyOrders';
+import Invoice from './pages/Invoice';
 import ScrollToTop from './components/layout/ScrollToTop';
 
 // Admin Pages
@@ -76,6 +77,7 @@ function App() {
                 <Route element={<UserProtectedRoute />}>
                   <Route path="/wishlist" element={<Wishlist />} />
                   <Route path="/my-orders" element={<MyOrders />} />
+                  <Route path="/invoice/:orderId" element={<Invoice />} />
                   <Route path="/checkout" element={<Checkout />} />
                 </Route>
                 <Route path="/login" element={<Login />} />

@@ -32,6 +32,14 @@ export default function PaymentSuccess() {
             </div>
           </div>
 
+          {orderId && (
+            <Link to={`/invoice/${orderId}`} target="_blank" rel="noopener noreferrer" className="w-full mb-4">
+              <button className="w-full h-12 justify-center flex items-center gap-2 border-2 border-primary text-primary-dark rounded-xl hover:bg-primary-light transition-colors font-bold text-base">
+                Download Invoice
+              </button>
+            </Link>
+          )}
+
           <div className="flex flex-col sm:flex-row gap-4 w-full">
             <Link to="/my-orders" className="flex-1">
                <Button className="w-full justify-center h-12 text-base font-bold shadow-md hover:shadow-lg">View My Orders</Button>

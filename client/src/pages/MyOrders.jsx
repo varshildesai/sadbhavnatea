@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { Package, Clock, CheckCircle2, Truck, Box, XCircle, FileText, LifeBuoy, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Button from '../components/ui/Button';
@@ -220,9 +221,11 @@ export default function MyOrders() {
                           )}
 
                           <div className="pt-2 flex flex-col gap-3">
-                            <button className="w-full bg-white border border-gray-200 hover:border-primary hover:text-primary transition-colors py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-sm">
-                              <FileText size={16} /> Download Invoice
-                            </button>
+                            <Link to={`/invoice/${order._id}`} target="_blank" rel="noopener noreferrer" className="w-full">
+                              <button className="w-full bg-white border border-gray-200 hover:border-primary hover:text-primary transition-colors py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-sm">
+                                <FileText size={16} /> Download Invoice
+                              </button>
+                            </Link>
                             <button className="w-full bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-gray-700 shadow-sm">
                               <LifeBuoy size={16} /> Contact Support
                             </button>
