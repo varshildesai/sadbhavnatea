@@ -66,8 +66,8 @@ export default function Home() {
               <span className="text-white font-bold tracking-widest uppercase mb-4 inline-block bg-primary/90 backdrop-blur-md border border-primary-light/30 px-5 py-2 rounded-full w-max mx-auto lg:mx-0 text-xs sm:text-sm shadow-lg shadow-primary/20 flex items-center gap-2">
                 <Leaf size={14} /> 100% Organic & Natural
               </span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                Awaken Your <br className="hidden lg:block" />Senses With <br className="hidden lg:block" /><span className="text-primary-light font-serif italic text-7xl md:text-8xl">Sadbhavna</span>
+              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                Awaken Your <br className="hidden lg:block" />Senses With <br className="hidden lg:block" /><span className="text-primary-light font-serif italic text-6xl md:text-7xl">Sadbhavna</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
                 Experience the authentic taste of Assam. From hand-picked premium CTC teas to state-of-the-art Atlantis vending machines. Everything you need for the perfect cup.
@@ -285,7 +285,7 @@ export default function Home() {
             
             <div className="relative z-10 p-10 md:p-16 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8">
                <div className="w-full md:w-1/2">
-                 <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
+                 <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
                    "A cup of tea makes <br className="hidden md:block" /> everything better."
                  </h2>
                  <div className="text-primary-light text-lg mb-0 font-medium font-serif italic max-w-md border-l-4 border-primary-light pl-4">
@@ -301,7 +301,7 @@ export default function Home() {
                    href="https://www.instagram.com/sadbhavnatea?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="relative overflow-hidden group/btn inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-gray-900 rounded-2xl font-black text-lg transition-transform hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"
+                   className="relative overflow-hidden group/btn inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-900 rounded-xl font-black text-base transition-transform hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"
                  >
                    <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 opacity-0 group-hover/btn:opacity-10 transition-opacity duration-300"></div>
                    <Instagram className="relative z-10 text-pink-500 group-hover/btn:text-pink-600 transition-colors duration-300" size={28} />
