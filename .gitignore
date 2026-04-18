@@ -23,5 +23,7 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# Optional: Server uploads (if you don't want to track user uploads)
-server/uploads/
+# Optional: Server uploads (commented out to allow images to be deployed to Render)
+# server/uploads/
+#GLDM0PM3JHNN70rC passmongo
+#mongodb+srv://varshildesai247_db_user:GLDM0PM3JHNN70rC@cluster0.nf4oeho.mongodb.net/?appName=Cluster0
