@@ -214,7 +214,6 @@ export default function ProductDetails() {
   const submitReview = async (e) => {
     e.preventDefault();
     if (!user) return toast.error('Please login to submit a review');
-    if (!comment.trim()) return toast.error('Please enter a comment');
 
     setSubmittingReview(true);
     try {
@@ -540,13 +539,13 @@ export default function ProductDetails() {
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-bold text-gray-700 mb-2">Share your experience</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Share your experience (Optional)</label>
                 <textarea 
                   rows="4" 
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl p-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
-                  placeholder="What did you like about this product?"
+                  placeholder="What did you like about this product? (Optional)"
                 ></textarea>
               </div>
               <Button type="submit" disabled={submittingReview}>
@@ -576,7 +575,9 @@ export default function ProductDetails() {
                     <span className="text-xs font-medium text-gray-400">{new Date(review.createdAt).toLocaleDateString()}</span>
                   </div>
                   
-                  <p className="text-gray-700 mb-4 whitespace-pre-wrap leading-relaxed">{review.comment}</p>
+                  {review.comment && (
+                    <p className="text-gray-700 mb-4 whitespace-pre-wrap leading-relaxed">{review.comment}</p>
+                  )}
                   
                   {user && (user._id === review.user?._id || user._id === review.user) && (
                     <div className="flex gap-4 mb-4 text-sm border-t border-gray-100 pt-3">

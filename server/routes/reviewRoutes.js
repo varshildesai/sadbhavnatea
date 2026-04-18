@@ -118,7 +118,7 @@ router.put('/:id', protect, async (req, res) => {
       }
 
       review.rating = Number(rating) || review.rating;
-      review.comment = comment || review.comment;
+      review.comment = comment !== undefined ? comment : review.comment;
       await review.save();
 
       // Recalculate average rating
