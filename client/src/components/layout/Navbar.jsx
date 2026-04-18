@@ -22,7 +22,7 @@ export default function Navbar() {
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
           <Link to="/" className="flex items-center shrink-0">
-            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-10 md:h-12 w-auto object-contain drop-shadow-md transition-transform duration-300 hover:scale-[1.02]" />
+            <img src="/logo2-0-transparent.png" alt="Sadbhavna Tea" className="h-14 md:h-16 lg:h-[68px] w-auto object-contain drop-shadow-md transition-transform duration-300 hover:scale-[1.03]" />
           </Link>
         </div>
         
