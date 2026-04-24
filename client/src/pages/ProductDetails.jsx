@@ -26,6 +26,11 @@ export default function ProductDetails() {
   const [fullscreenImageIndex, setFullscreenImageIndex] = useState(null);
   const [isWishlisted, setIsWishlisted] = useState(false);
 
+  const generateSlug = (name) => {
+    if (!name || name === 'All') return 'all';
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  };
+
   const openFullscreen = (index) => {
     setFullscreenImageIndex(index);
     document.body.style.overflow = 'hidden';
@@ -379,7 +384,7 @@ export default function ProductDetails() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <div 
-                    onClick={() => navigate(`/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`)}
+                    onClick={() => navigate(`/category/${generateSlug(product.category)}`)}
                     className="text-secondary text-xs uppercase tracking-widest font-bold mb-2 cursor-pointer hover:underline"
                   >
                     {product.category}

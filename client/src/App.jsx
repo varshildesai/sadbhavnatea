@@ -8,6 +8,7 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
 import AuthSuccess from './pages/AuthSuccess';
 import PaymentSuccess from './pages/PaymentSuccess';
 import Wishlist from './pages/Wishlist';
@@ -81,6 +82,7 @@ function App() {
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/auth/success" element={<AuthSuccess />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
               </Routes>

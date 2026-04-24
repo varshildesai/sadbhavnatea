@@ -141,8 +141,74 @@ export const AuthProvider = ({ children }) => {
     showLogoutToast();
   };
 
+  const loginWithPassword = async (email, password) => {
+    try {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Login failed');
+      
+      setToken(data.token);
+      setUser({
+        _id: data._id,
+        name: data.name,
+        email: data.email,
+        role: data.role,
+        wishlist: data.wishlist
+      });
+      showLoginToast(data.name);
+      return data;
+    } catch (error) {
+      showErrorToast(error.message);
+      throw error;
+    }
+  };
+
+  const forgotPassword = async (email) => {
+    try {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Failed to send reset OTP');
+      
+      if (data.devOtp) {
+        toast.success(`[DEV MODE] Your OTP is: ${data.devOtp}`, { duration: 60000, icon: '🚨' });
+      } else {
+        toast.success(data.message);
+      }
+      return true;
+    } catch (error) {
+      showErrorToast(error.message);
+      throw error;
+    }
+  };
+
+  const resetPassword = async (email, otp, newPassword) => {
+    try {
+      const res = await fetch('https://sadbhavna-api.onrender.com/api/auth/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp, newPassword })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Password reset failed');
+      
+      toast.success(data.message);
+      return true;
+    } catch (error) {
+      showErrorToast(error.message);
+      throw error;
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, token, register, verifyRegister, sendOtp, verifyOtp, handleOAuthLogin, logout, setUser }}>
+    <AuthContext.Provider value={{ user, token, register, verifyRegister, sendOtp, verifyOtp, loginWithPassword, forgotPassword, resetPassword, handleOAuthLogin, logout, setUser }}>
       {children}
     </AuthContext.Provider>
   );

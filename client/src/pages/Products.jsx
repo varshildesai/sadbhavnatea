@@ -10,12 +10,14 @@ export default function Products() {
   
   const [searchTerm, setSearchTerm] = useState('');
   
-  // Format the URL parameter (e.g. 'tea-masala') to match the categories array ('Tea Masala')
-  const initialCategory = categoryId 
-    ? categoryId.replace(/-/g, ' ')
-    : 'All';
-    
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  // Generate a consistent slug for matching
+  const generateSlug = (str) => {
+    if (!str || str === 'All') return 'all';
+    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  };
+
+  const initialCategorySlug = categoryId ? categoryId : 'all';
+  const [selectedCategorySlug, setSelectedCategorySlug] = useState(initialCategorySlug);
   const [sortBy, setSortBy] = useState('Popularity');
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 15;
@@ -27,12 +29,12 @@ export default function Products() {
   // Reset pagination when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, selectedCategory, sortBy]);
+  }, [searchTerm, selectedCategorySlug, sortBy]);
 
   // Sync state if URL changes externally
   useEffect(() => {
-    setSelectedCategory(initialCategory);
-  }, [initialCategory]);
+    setSelectedCategorySlug(initialCategorySlug);
+  }, [initialCategorySlug]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,11 +79,12 @@ export default function Products() {
   }, []);
 
   const handleCategoryChange = (catName) => {
-    setSelectedCategory(catName);
-    if (catName === 'All') {
+    const slug = generateSlug(catName);
+    setSelectedCategorySlug(slug);
+    if (slug === 'all') {
       navigate('/products');
     } else {
-      navigate(`/category/${catName.toLowerCase().replace(/\s+/g, '-')}`);
+      navigate(`/category/${slug}`);
     }
   };
 
@@ -89,7 +92,8 @@ export default function Products() {
   // Apply filtering
   const filteredProducts = products.filter(p => {
     const matchesSearch = p.name?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false;
-    const matchesCategory = selectedCategory === 'All' || p.category?.toLowerCase() === selectedCategory.toLowerCase();
+    const pSlug = generateSlug(p.category);
+    const matchesCategory = selectedCategorySlug === 'all' || pSlug === selectedCategorySlug;
     return matchesSearch && matchesCategory;
   }).sort((a, b) => {
     switch (sortBy) {
@@ -116,7 +120,7 @@ export default function Products() {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
         <h1 className="text-3xl font-extrabold text-gray-800">
-          {selectedCategory === 'All' ? 'Our Products' : `${selectedCategory} Collection`}
+          {selectedCategorySlug === 'all' ? 'Our Products' : `${categories.find(c => generateSlug(c) === selectedCategorySlug) || 'Category'} Collection`}
         </h1>
         <div className="relative w-full md:w-96 text-gray-600">
           <input 
@@ -150,7 +154,7 @@ export default function Products() {
                         type="radio" 
                         name="category" 
                         className="w-4 h-4 text-primary bg-gray-100 border-gray-300 focus:ring-primary" 
-                        checked={selectedCategory.toLowerCase() === cat.toLowerCase()} 
+                        checked={selectedCategorySlug === generateSlug(cat)} 
                         onChange={() => handleCategoryChange(cat)}
                       />
                       <span className="text-gray-600 group-hover:text-primary-dark transition-colors">{cat}</span>

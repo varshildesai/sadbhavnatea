@@ -6,12 +6,31 @@ import { FcGoogle } from 'react-icons/fc';
 
 export default function Login() {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [otp, setOtp] = useState('');
   const [step, setStep] = useState(1);
+  const [loginMethod, setLoginMethod] = useState('password');
   const [isLoading, setIsLoading] = useState(false);
   
   const navigate = useNavigate();
-  const { sendOtp, verifyOtp } = useAuth();
+  const { sendOtp, verifyOtp, loginWithPassword } = useAuth();
+
+  const handlePasswordLogin = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const user = await loginWithPassword(email, password);
+      if (user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
+    } catch (err) {
+      // Error handled by AuthContext (toast)
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
@@ -55,25 +74,62 @@ export default function Login() {
         
         <div className="relative z-10">
           <div className="text-center mb-10">
-            <h1 className="text-3xl font-extrabold text-gray-800 mb-2">{step === 1 ? 'Welcome' : 'Security Check'}</h1>
-            <p className="text-gray-500 text-sm">{step === 1 ? 'Sign in or create an account to continue.' : 'Please enter the 6-digit OTP sent to your email.'}</p>
+            <h1 className="text-3xl font-extrabold text-gray-800 mb-2">{step === 1 ? 'Welcome Back' : 'Security Check'}</h1>
+            <p className="text-gray-500 text-sm">{step === 1 ? 'Sign in to your account to continue.' : 'Please enter the 6-digit OTP sent to your email.'}</p>
           </div>
 
           {step === 1 ? (
             <>
-              <form onSubmit={handleSendOtp} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
-                  <input 
-                    type="email" required value={email} onChange={e => setEmail(e.target.value)}
-                    className="w-full bg-surface border border-gray-200 rounded-xl p-4 text-sm focus:border-primary focus:bg-white" 
-                    placeholder="you@example.com" 
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full shadow-md mt-4" disabled={isLoading}>
-                  {isLoading ? 'Sending OTP...' : 'Send OTP'}
-                </Button>
-              </form>
+              {loginMethod === 'password' ? (
+                <form onSubmit={handlePasswordLogin} className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                    <input 
+                      type="email" required value={email} onChange={e => setEmail(e.target.value)}
+                      className="w-full bg-surface border border-gray-200 rounded-xl p-4 text-sm focus:border-primary focus:bg-white" 
+                      placeholder="you@example.com" 
+                    />
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="block text-sm font-bold text-gray-700">Password</label>
+                      <Link to="/forgot-password" className="text-sm text-primary font-semibold hover:underline">Forgot Password?</Link>
+                    </div>
+                    <input 
+                      type="password" required value={password} onChange={e => setPassword(e.target.value)}
+                      className="w-full bg-surface border border-gray-200 rounded-xl p-4 text-sm focus:border-primary focus:bg-white" 
+                      placeholder="••••••••" 
+                    />
+                  </div>
+                  <Button type="submit" size="lg" className="w-full shadow-md mt-4" disabled={isLoading}>
+                    {isLoading ? 'Signing in...' : 'Sign In'}
+                  </Button>
+                  <div className="text-center mt-4">
+                    <button type="button" onClick={() => setLoginMethod('otp')} className="text-sm text-gray-500 hover:text-primary font-medium">
+                      Login with OTP instead
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <form onSubmit={handleSendOtp} className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                    <input 
+                      type="email" required value={email} onChange={e => setEmail(e.target.value)}
+                      className="w-full bg-surface border border-gray-200 rounded-xl p-4 text-sm focus:border-primary focus:bg-white" 
+                      placeholder="you@example.com" 
+                    />
+                  </div>
+                  <Button type="submit" size="lg" className="w-full shadow-md mt-4" disabled={isLoading}>
+                    {isLoading ? 'Sending OTP...' : 'Send OTP'}
+                  </Button>
+                  <div className="text-center mt-4">
+                    <button type="button" onClick={() => setLoginMethod('password')} className="text-sm text-gray-500 hover:text-primary font-medium">
+                      Login with Password instead
+                    </button>
+                  </div>
+                </form>
+              )}
 
               <div className="mt-8 flex items-center">
                 <div className="flex-1 border-t border-gray-200"></div>

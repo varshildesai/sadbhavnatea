@@ -63,7 +63,7 @@ export default function Invoice() {
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 shadow-sm border border-gray-200 print:shadow-none print:border-none print:p-0">
         
         {/* Header */}
-        <div className="flex justify-between items-start border-b-2 border-gray-800 pb-8 mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start border-b-2 border-gray-800 pb-8 mb-8 gap-6 md:gap-0">
           <div>
             <div className="w-48 mb-4">
                {/* Using explicit text for print reliability, or logo if allowed in print css */}
@@ -71,9 +71,9 @@ export default function Invoice() {
             </div>
             <p className="text-sm text-gray-600">Varshil Desai (Proprietor)</p>
             <p className="text-sm text-gray-600">Surat, Gujarat, India</p>
-            <p className="text-sm text-gray-600">Email: varshildesai247@gmail.com</p>
+            <p className="text-sm text-gray-600 break-all">Email: varshildesai247@gmail.com</p>
           </div>
-          <div className="text-right">
+          <div className="text-left md:text-right w-full md:w-auto">
             <h2 className="text-4xl font-black text-gray-200 uppercase tracking-widest mb-2">INVOICE</h2>
             <p className="font-bold text-gray-800">Invoice # {order._id.slice(-8).toUpperCase()}</p>
             <p className="text-sm text-gray-600 mt-1">Date: {new Date(order.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
@@ -101,8 +101,8 @@ export default function Invoice() {
         </div>
 
         {/* Items Table */}
-        <div className="mb-10">
-          <table className="w-full text-left border-collapse">
+        <div className="mb-10 overflow-x-auto w-full">
+          <table className="w-full min-w-[500px] text-left border-collapse">
             <thead>
               <tr className="bg-gray-100 text-gray-800 text-xs uppercase tracking-wider print:bg-gray-200">
                 <th className="p-3 rounded-l-lg">Item Description</th>
